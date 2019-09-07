@@ -10,6 +10,5 @@ geopy
 pyroutelib3
 folium
 requests
-pylab
 flask
 mpmath
