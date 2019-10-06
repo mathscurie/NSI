@@ -49,17 +49,32 @@ function bonjourDivision()
 
 <p class="question" id="Q1">Q1 : Combien de fois le corps de la boucle est-il exécuté ?</p>
 
+<p class="réponse" id="R1">R1 : le corps de la boucle est exécuté 21 fois, une fois par élève.</p>
+  
 <h3>La même chose, en JavaScript</h3>
 
 <button onclick=bonjour()>Ne cliquez surtout pas ici</button>
 
 <p class="question" id="Q2">Q2 : Pourquoi ne faut-il pas cliquer sur le bouton ci-dessus ?</p>
 
+<p class="réponse" id="R2">R2 : cliquer sur le bouton ouvre 21 fenêtre les unes après les autres, ce qui est peu agréable.</p>
+
 <p class="question" id="Q3">Q3 : Comment trouver le code javascript qui s'exécute si par malheur on clique sur le bouton ?</p>
+
+<p class="réponse" id="R3">R3 : on peut afficher le code html par Ctrl-U, le code javascript y est présent.</p>
+
 
 <p class="question" id="Q4">Q4 : Comment trouver le code javascript qui s'exécute si par malheur on clique sur le bouton, avec une autre méthode ?</p>
 
+
+<p class="réponse" id="R4">R4 : on peut utiliser l'inspecteur d'objet en tapant F12.</p>
+
+
 <p class="question" id="Q5">Q5 : Quelle différence peut-on voir entre la définition de listeEleves en Python et en javascript ?</p>
+
+
+<p class="réponse" id="R5">R5 : la syntaxe est presque identique, à part un let et un ;</p>
+
 
 <h2> Enumérer ou compter ?</h2>
 
@@ -76,9 +91,21 @@ permet d'énumérer les éléments de la liste en exécutant pour chacun les ins
 
 <p class="question" id="Q6">Q6 : Combien vaut la variable i lors du dernier tour de boucle ?</p>
 
+
+<p class="réponse" id="R6">R6 : pendant le dernier tour de boucle, i vaut 20.</p>
+
+
 <p class="question" id="Q7">Q7 : Combien vaut la variable i après le dernier tour de boucle ?</p>
 
+
+<p class="réponse" id="R7">R7 : après le dernier tour de boucle, i vaut 21. </p>
+
+
 <p class="question" id="Q8">Q8 : Est-ce que c'est la même chose en Python qu'en javascript ?</p>
+
+
+<p class="réponse" id="R8">R8 : en Python la variable prenom prend comme valeurs les éléments de la liste, tandis qu'avec le script javascript proposé la variable de boucle prend comme valaurs les indices des prénoms.</p>
+
 
 <h3> La fonction Python enumerate </h3>
 
@@ -119,6 +146,9 @@ l3=list(range(0,11,2))
 
 <p class="question" id="Q9">Q9 : Donner la longueur de chacune de ces listes.</p>
 
+<p class="réponse" id="R9">R9 : les longueurs respectives des trois listes sont 4, 3 et 6.</p>
+
+
 <h3>En javascript</h3>
 
 <p>On peut utiliser l'ardoise javascript (Shift-F4 ou bien menu Outils de développement) sous Firfox, ou bien la console avec Ctrl-Shift-K, ou encore <a href="nodejs.org">node.js</a>.</p>
@@ -140,6 +170,10 @@ Il est utile de savoir que les boucles for de javascript sont exatement les mêm
 </p>
  
 <p class="question" id="Q10">Q10 : Quels sont les nombres affichés par la troisième boucle ci-dessus ?</p>
+
+
+<p class="réponse" id="R10">R10 : les nombres affichés par la troisième liste sont 1, 2, 4, 8, 16, 32, 64, 128, 256 et 512.</p>
+
 
 <h3>Equivalence avec un while</h3>
 
@@ -189,7 +223,21 @@ en Python.
 
 <p class="question" id="Q11">Q11 : Que fait l'instruction liste.append(élément) ?</p>
 
+
+<p class="réponse" id="R11">R11 : l'instruction liste.append(élément) permet de rajouter élément à la fin de liste.</p>
+
+
 <p class="question" id="Q12">Q12 : Ecrire une fonction qui renvoie la liste des 20 premiers multiples d'un entier donné.</p>
+
+
+<p class="réponse" id="R12">R12 : il suffit de modifier légèrement le programme précédent. </p>
+
+<pre class="line-numbers"><code class="language-python">def multiples20(n):
+  listeMultiples=[]
+  for k in range(1,21):
+    listeMultiples.append(k*n)
+  return listeMultiples
+</code></pre>
 
 <h3>Une accumulation</h3>
 
@@ -203,13 +251,26 @@ en Python.
 
 <p class="question" id="Q13">Q13 : Pourquoi a-t-on un range(1,n+1) ?</p>
 
+
+<p class="réponse" id="R13">R13 : range(1,n+1) permet d'énumérer tous les entiers de 1 à n (inclus).</p>
+
+
 <p class="question" id="Q14">Q14 : Ecrire une fonction somme2 qui calcule la somme des carrés des n premiers entiers naturels non nuls.</p>
+
+
+<p class="réponse" id="R14">R14 : il suffit de remplacer s=s+k par s=s+k**2 afin d'accumuler les k**2 dans s.</p>
+<pre class="line-numbers"><code class="language-python">def somme2(n):
+  s=0
+  for k in range(1,n+1):
+    s=s+k**2
+  return s
+</code></pre>
 
 
 <h3>Une double boucle</h3>
 
 
-<p class="question" id="Q15">Q15 : Combien contient la variable s à la fin de l'exécution de l'algorithme ? Calculer d'abord en exécutant l'algorithme à la main, puis vérifier en exécutant le code (éventuellement avec PythonTutor).</p>
+
 
 
 <pre class="line-numbers"><code class="language-python">s=0
@@ -218,7 +279,12 @@ for k in range(4):
     s=s+k
 </code></pre>
 
-<p class="question" id="Q16">Q16 : Même question.</p>
+<p class="question" id="Q15">Q15 : Combien contient la variable s à la fin de l'exécution de l'algorithme ? Calculer d'abord en exécutant l'algorithme à la main, puis vérifier en exécutant le code (éventuellement avec PythonTutor).</p>
+
+
+<p class="réponse" id="R15">R15 : s=18.</p>
+
+
 
 
 <pre class="line-numbers"><code class="language-python">s=0
@@ -226,7 +292,10 @@ for k in range(4):
   for l in range(3):
     s=s+k*l
 </code></pre>
+<p class="question" id="Q16">Q16 : Même question.</p>
 
+
+<p class="réponse" id="R16">R16 : s=18. </p>
 <h3>Dessiner des motifs</h3>
 
 <p class="question" id="Q17">Q17 : Ecrire une boucle qui dessine le motif ci-dessous.</p>
@@ -239,13 +308,41 @@ for k in range(4):
 ******<br/>
 
 
+<p class="réponse" id="R17">R17 : multiplier une chaîne par un entier permet de la répéter le nombre spécifié de fois.</p>
+<pre class="line-numbers"><code class="language-python">for k in range(1,7):
+  print('*'*k)
+</code></pre>
+
+
 <p class="question" id="Q18">Q18 : Ecrire une fonction qui prend comme paramètre le nombre de lignes et qui renvoie une chaîne de caractères contenant le motif (on rappelle que le passage à la ligne se note \n).</p>
+
+
+<p class="réponse" id="R18">R18 : il s'agit ici de renvoyer une chaîne de caractères ; pas de print, par contre on va accumuler des lignes d'étoiles dans une chaîne.</p>
+
+<pre class="line-numbers"><code class="language-python">def lignesEtoiles(n):
+  s=''
+  for k in range(1,n+1):
+    s=s+'*'*k+'\n'
+  return s
+</code></pre>
+
 
 <h3> Factorielle </h3>
 
 <p>La factorielle d'un nombre entier positif n, notée n!, est le produit 1*2*3*...*n. Par convention, 0!=1.</p>
 
 <p class="question" id="Q19">Q19 : Ecrire une fonction qui prend comme paramètre un entier n et retourne sa factorielle.</p>
+
+
+<p class="réponse" id="R19">R19 : il faut juste penser qu'on commence la multiplication à 1.</p>
+
+<pre class="line-numbers"><code class="language-python">def factorielle(n):
+  facto=1
+  for k in range(2,n+1):
+    facto=facto*k
+  return facto
+</code></pre>
+
 
 <h3> Fizz bubble</h3>
 
@@ -254,7 +351,22 @@ for k in range(4):
 
 <p class="question" id="Q20">Q20 : Ecrire une fonction FizzBubble qui prend comme paramètre un entier n et affiche le comptage de 1 à n en mode Fizz Bubble. Par exemple, FizzBubble(20) doit afficher :</p>
 
-<br/>1<br/>2<br/>Fizz<br/>4<br/>Bubble<br/>Fizz<br/>7<br/>8<br/>Fizz<br/>Bubble<br/>11<br/>Fizz<br/>13<br/>14<br/>Fizz Bubble<br/>16<br/>17<br/>Fizz<br/>19<br/>Bubble<br/>
+
+
+1<br/>2<br/>Fizz<br/>4<br/>Bubble<br/>Fizz<br/>7<br/>8<br/>Fizz<br/>Bubble<br/>11<br/>Fizz<br/>13<br/>14<br/>Fizz Bubble<br/>16<br/>17<br/>Fizz<br/>19<br/>Bubble<br/>
+
+<p class="réponse" id="R20">R20 : dans la boucle on utilise une alternative.</p>
+<pre class="line-numbers"><code class="language-python">def FizzBubble(n):
+  for k in range(1,n+1):
+    if k%15==0:
+      print('Fizz Bubble')
+    elif k%3==0:
+      print('Fizz')
+    elif k%5==0:
+      print('Bubble')
+    else:
+      print(k)
+</code></pre>
 
 <h3> Damier </h3>
 
