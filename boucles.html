@@ -1,0 +1,321 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Boucles</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<style type="text/css"><!--body { font-family:Arial,Helvetica,sans-serif; margin-left:40px }--></style>
+<link rel="stylesheet"  href="prism.css" />
+<script src="prism.js"></script>
+
+
+<script>
+function bonjour()
+{
+  let listeEleves=['Hugo','Damien','Corentin','Enzo','Ophélie','Arnaud','Yanis','Gédéon','Eliott','Max','Lucas','Leonard','Valentin','Tristan','Quentin', 'Steven', 'Elliot','Hugo','Charles','Inadzio','Malcom'];
+
+  for(var i=0;i<listeEleves.length;i++)
+  {
+    alert("Bonjour "+listeEleves[i]);
+  }
+
+}
+</script>
+
+<script>
+function bonjourDivision()
+{
+  let listeEleves=['Hugo','Damien','Corentin','Enzo','Ophélie','Arnaud','Yanis','Gédéon','Eliott','Max','Lucas','Leonard','Valentin','Tristan','Quentin', 'Steven', 'Elliot','Hugo','Charles','Inadzio','Malcom'];
+  division=document.getElementById("bonjours");
+  alert("La fonction bonjourDivision doit modifier dynamiquement la page HTML et saluer les élèves dans la division dont l'id est 'bonjours'");
+}
+</script>
+
+
+</head>
+
+
+<body>
+
+<h1> Utiliser des boucles </h1>
+
+<h2>Salutations </h2>
+
+<p>Pour dire bonjour à chaque élève, le professeur de NSI a décidé d'utiliser une boucle.</p>
+
+<h3>En Python</h3>
+
+<iframe width="800" height="250" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=listeEleves%3D%5B'Hugo','Damien','Corentin','Enzo','Oph%C3%A9lie','Arnaud','Yanis','G%C3%A9d%C3%A9on','Eliott','Max','Lucas','Leonard','Valentin','Tristan','Quentin',%20'Steven',%20'Elliot','Hugo','Charles','Inadzio','Malcom'%5D%0A%0Afor%20prenom%20in%20listeEleves%3A%0A%20%20%20%20print%28'Bonjour%20'%2Bprenom%29%0A%20%20%20%20%0A&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=2&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+
+<p class="question" id="Q1">Q1 : Combien de fois le corps de la boucle est-il exécuté ?</p>
+
+<h3>La même chose, en JavaScript</h3>
+
+<button onclick=bonjour()>Ne cliquez surtout pas ici</button>
+
+<p class="question" id="Q2">Q2 : Pourquoi ne faut-il pas cliquer sur le bouton ci-dessus ?</p>
+
+<p class="question" id="Q3">Q3 : Comment trouver le code javascript qui s'exécute si par malheur on clique sur le bouton ?</p>
+
+<p class="question" id="Q4">Q4 : Comment trouver le code javascript qui s'exécute si par malheur on clique sur le bouton, avec une autre méthode ?</p>
+
+<p class="question" id="Q5">Q5 : Quelle différence peut-on voir entre la définition de listeEleves en Python et en javascript ?</p>
+
+<h2> Enumérer ou compter ?</h2>
+
+<p> En Python, la construction 
+<pre class="line-numbers"><code class="language-python">for variable in liste:
+  instructions
+</code></pre>
+
+permet d'énumérer les éléments de la liste en exécutant pour chacun les instructions du corps de la boucle. </p>
+
+<p>En javascript, la variable est un compteur qui va prendre les valeurs des indices des prénoms dans la liste.</p>
+
+<iframe width="800" height="300" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=let%20listeEleves%3D%5B'Hugo','Damien','Corentin','Enzo','Oph%C3%A9lie','Arnaud','Yanis','G%C3%A9d%C3%A9on','Eliott','Max','Lucas','Leonard','Valentin','Tristan','Quentin',%20'Steven',%20'Elliot','Hugo','Charles','Inadzio','Malcom'%5D%3B%0A%0Afor%28var%20i%3D0%3Bi%3ClisteEleves.length%3Bi%2B%2B%29%0A%20%20%7B%0A%20%20%20%20console.log%28%22Bonjour%20%22%2BlisteEleves%5Bi%5D%29%3B%0A%20%20%7D%0A&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=js&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+
+<p class="question" id="Q6">Q6 : Combien vaut la variable i lors du dernier tour de boucle ?</p>
+
+<p class="question" id="Q7">Q7 : Combien vaut la variable i après le dernier tour de boucle ?</p>
+
+<p class="question" id="Q8">Q8 : Est-ce que c'est la même chose en Python qu'en javascript ?</p>
+
+<h3> La fonction Python enumerate </h3>
+
+<p>Il est parfois utile d'accéder à la fois à un élément de la liste et à son rang ; la fonction enumerate de Python permet cela. </p>
+
+<iframe width="800" height="300" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=listeEleves%3D%5B'Hugo','Damien','Corentin','Enzo','Oph%C3%A9lie','Arnaud','Yanis','G%C3%A9d%C3%A9on','Eliott','Max','Lucas','Leonard','Valentin','Tristan','Quentin',%20'Steven',%20'Elliot','Hugo','Charles','Inadzio','Malcom'%5D%0A%20%0Afor%20k,prenom%20in%20enumerate%28listeEleves%29%3A%0A%20%20%20%20print%28'Bonjour%20%C3%A9l%C3%A8ve%20num%C3%A9ro%20'%2Bstr%28k%29%2B%22,%20tu%20t'appelles%20%22%2Bprenom%2B%22%20je%20crois%20!%22%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=2&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+
+<h2> L'objet Python range</h2>
+
+<h3>Compter de zéro (inclus) à n (exclus)</h3>
+
+<p>Lorsqu'on veut exécuter les instructions à l'intérieur d'un boucle un nombre n fixé de fois, on peut utiliser la construction 
+<pre class="line-numbers"><code class="language-python">for variable in range(n):
+  instructions
+</code></pre>
+
+où range(n) est ce qu'on appelle un itérable (comme une liste, un tuple ou une chaîne de caractères).</p>
+
+<p> range(n), où n est un entier, se comporte comme la liste [0,1,2,3,...,n-1] qui contient n entiers à partir de zéro.</p>
+
+<iframe width="800" height="300" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=for%20k%20in%20range%2810%29%3A%0A%20%20%20%20print%28k%29%0A%20%20%20%20%0Aa%3Drange%285%29%0Ab%3Dlist%28range%285%29%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+
+<p> Attention, un objet range n'est pas une liste. On peut le transformer en liste avec list() comme sur la ligne 2 ci-dessous.
+<pre class="line-numbers"><code class="language-python">a=range(5)
+b=list(range(5))
+type(a),type(b)
+</code></pre>
+</p>
+
+<h3>Compter de différentes manières</h3>
+
+<p> Copier ces quelques lignes dans un interpréteur Python, penser à déterminer la longueur de chaque liste.
+<pre class="line-numbers"><code class="language-python">l1=list(range(10,20,3))
+l2=list(range(10,2,-3))
+l3=list(range(0,11,2))
+</code></pre>
+</p>
+
+<p class="question" id="Q9">Q9 : Donner la longueur de chacune de ces listes.</p>
+
+<h3>En javascript</h3>
+
+<p>On peut utiliser l'ardoise javascript (Shift-F4 ou bien menu Outils de développement) sous Firfox, ou bien la console avec Ctrl-Shift-K, ou encore <a href="nodejs.org">node.js</a>.</p>
+
+<p> Essayer ces quelques lignes de js.
+<pre class="line-numbers"><code class="language-javascript">for(var i=5;i>0;i--) {console.log(i)};
+
+for(var k=20;k>=0;k=k-4)
+{
+  console.log(k)
+};
+
+for(var t=1;t<1000;t=t*2)
+{
+  console.log(t);
+}
+</code></pre>
+Il est utile de savoir que les boucles for de javascript sont exatement les mêmes que pour les langages de la même famille : C, C++, Processing, Arduino, Java... 
+</p>
+ 
+<p class="question" id="Q10">Q10 : Quels sont les nombres affichés par la troisième boucle ci-dessus ?</p>
+
+<h3>Equivalence avec un while</h3>
+
+<p> Réécrivons la troisième boucle en Python ; on va utiliser un while car la multiplication par deux n'est pas très simple avec un for.</p>
+<pre class="line-numbers"><code class="language-python">t=1
+while t<1000:
+  t=t*2
+  print(t)
+</code></pre>
+</p>
+
+<p>La construction 
+<pre class="line-numbers"><code class="language-javascript">for(initialisation;condition;instruction)
+{
+  instructions;
+}
+</code></pre>
+est équivalente à
+<pre class="line-numbers"><code class="language-javascript">initialisation;
+while(condition)
+{
+  instructions;
+  instruction;
+}
+</code></pre>
+en javascript, et à 
+<pre class="line-numbers"><code class="language-python">initialisation
+while condition:
+  instructions
+  instruction
+</code></pre>
+en Python.
+</p>
+
+<h2>Exercices</h2>
+
+<h3>Simple, basique</h3>
+
+<p> Voici une fonction qui renvoie une liste des dix premiers multiples non-nuls de son argument n (voir sur <a href="<iframe width="800" height="500" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=def%20multiples%28n%29%3A%0A%20%20listeMultiples%3D%5B%5D%0A%20%20for%20k%20in%20range%281,11%29%3A%0A%20%20%20%20listeMultiples.append%28k*n%29%0A%20%20return%20listeMultiples%0A%20%20%0Aprint%28multiples%287%29%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=2&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>">PythonTutor</a>).</p>
+
+<pre class="line-numbers"><code class="language-python">def multiples(n):
+  listeMultiples=[]
+  for k in range(1,11):
+    listeMultiples.append(k*n)
+  return listeMultiples
+</code></pre>
+
+<p class="question" id="Q11">Q11 : Que fait l'instruction liste.append(élément) ?</p>
+
+<p class="question" id="Q12">Q12 : Ecrire une fonction qui renvoie la liste des 20 premiers multiples d'un entier donné.</p>
+
+<h3>Une accumulation</h3>
+
+<p> La fonction somme proposée ici calcule la somme des n premiers entiers naturels non-nuls</p> 
+<pre class="line-numbers"><code class="language-python">def somme(n):
+  s=0
+  for k in range(1,n+1):
+    s=s+k
+  return s
+</code></pre>
+
+<p class="question" id="Q13">Q13 : Pourquoi a-t-on un range(1,n+1) ?</p>
+
+<p class="question" id="Q14">Q14 : Ecrire une fonction somme2 qui calcule la somme des carrés des n premiers entiers naturels non nuls.</p>
+
+
+<h3>Une double boucle</h3>
+
+
+<p class="question" id="Q15">Q15 : Combien contient la variable s à la fin de l'exécution de l'algorithme ? Calculer d'abord en exécutant l'algorithme à la main, puis vérifier en exécutant le code (éventuellement avec PythonTutor).</p>
+
+
+<pre class="line-numbers"><code class="language-python">s=0
+  for k in range(4):
+    for l in range(3):
+      s=s+k
+</code></pre>
+
+<p class="question" id="Q16">Q16 : Même question.</p>
+
+
+<pre class="line-numbers"><code class="language-python">s=0
+  for k in range(4):
+    for l in range(3):
+      s=s+k*l
+</code></pre>
+
+<h3>Dessiner des motifs</h3>
+
+<p class="question" id="Q17">Q17 : Ecrire une boucle qui dessine le motif ci-dessous.</p>
+
+*<br/>
+**<br/>
+***<br/>
+****<br/>
+*****<br/>
+******<br/>
+
+
+<p class="question" id="Q18">Q18 : Ecrire une fonction qui prend comme paramètre le nombre de lignes et qui renvoie une chaîne de caractères contenant le motif (on rappelle que le passage à la ligne se note \n).</p>
+
+<h3> Factorielle </h3>
+
+<p>La factorielle d'un nombre entier positif n, notée n!, est le produit 1*2*3*...*n. Par convention, 0!=1.</p>
+
+<p class="question" id="Q19">Q19 : Ecrire une fonction qui prend comme paramètre un entier n et retourne sa factorielle.</p>
+
+<h3> Fizz bubble</h3>
+
+<p> Le jeu du Fizz Bubble consiste à compter à voix haute en partant de 1, de 1 en 1, mais en remplaçant les multiples de 3 par Fizz et les multiples de 5 par Bubble. Les multiples de 15 sont remplacés par Fizz Bubble. On peut choisir d'autres nombres que 3 et 5.</p>
+
+
+<p class="question" id="Q20">Q20 : Ecrire une fonction FizzBubble qui prend comme paramètre un entier n et affiche le comptage de 1 à n en mode Fizz Bubble. Par exemple, FizzBubble(20) doit afficher :</p>
+
+<br/>1<br/>2<br/>Fizz<br/>4<br/>Bubble<br/>Fizz<br/>7<br/>8<br/>Fizz<br/>Bubble<br/>11<br/>Fizz<br/>13<br/>14<br/>Fizz Bubble<br/>16<br/>17<br/>Fizz<br/>19<br/>Bubble<br/>
+
+<h3> Damier </h3>
+
+<p class="question" id="Q21">Q21 : Ecrire une fonction damier qui prend comme paramètres deux entiers n et p et affiche un damier n*n avec des cases carrées p*p. Par exemple, damier(6,3) doit afficher :</p>
+
+###___###___###___<br/>
+###___###___###___<br/>
+###___###___###___<br/>
+___###___###___###<br/>
+___###___###___###<br/>
+___###___###___###<br/>
+###___###___###___<br/>
+###___###___###___<br/>
+###___###___###___<br/>
+___###___###___###<br/>
+___###___###___###<br/>
+___###___###___###<br/>
+###___###___###___<br/>
+###___###___###___<br/>
+###___###___###___<br/>
+___###___###___###<br/>
+___###___###___###<br/>
+___###___###___###<br/>
+
+<h2>Un peu de CSS</h2>
+
+<p> Les questions sont peu lisibles, on voudrait les mettre en évidence.</p>
+<ul>
+<li> Dans l'inspecteur d'objets (F12) ou bien directement dans l'éditeur de style Shift-F7, ajouter une règle CSS qui permet de mettre toutes les questions en rouge, en les soulignant.</li>
+<li> En sauvegardant une copie de la page html dans votre répertoire personnel, insérer cette règle CSS à l'endroit adapté. Attention à copier également les fichiers prism.je et prism.css dans votre répertoire personnel.</li>
+</ul>
+
+<p class="question" id="Q22">Q22 : Quel est le code CSS utilisé (y compris le sélecteur) ?</p>
+<p class="question" id="Q23">Q23 : Où peut-on placer ce code CSS ?</p>
+ 
+
+<h2>Accès au DOM</h2>
+
+<button onclick="bonjourDivision()">Cliquer ici !</button>
+
+<div id="bonjours"></div>
+
+<p> Plutôt que des boîtes d'alerte, on va utiliser une division (dont l'id est bonjours) pour y afficher les bonjours.</p>
+
+<p> On aura besoin de quelques fonctions javascript qui permettent de modifier le DOM. </p>
+
+<ul>
+<li> let division=document.getElementById("id d'un élément") range dans la variable division une référence à l'élément dont on a donné l'id</li>
+<li> var p1=document.createElement("p"); crée un paragraphe mais sans le positionner ni lui affecter de contenu</li>
+<li> p1.textContent est une propriété qui contient le texte du paragraphe ; p1.textContent=prenom; est une piste à creuser.</li>
+<li> division.appendChild(p1); permet d'insérer dynamiquement le paragraphe à la fin de la division.
+</ul>
+
+
+<p class="question" id="Q24">Q24 : Que signifie l'acronyme DOM ?</p>
+
+
+<p class="question" id="Q25">Q25 : Modifier la fonction bonjourDivision() pour afficher les bonjours dans la division d'id "bonjours".</p>
+
+
+<p> <img src="./by-nc-sa.png" align="MIDDLE"/> Ronan Charpentier 2019 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/">Licence CC-BY-NC-SA</a>
+
+</body>
+</html>
