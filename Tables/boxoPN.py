@@ -1,10 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-liste=['LoreleïA','SalomonA','ZineddineA','MathysA','MathéoB','MatteoB','ThéoB',
-       'NoahB','NathanaëlC','MélanieD','MarinD','RaphaëlG','ElonaG','LauraL','AlexisL',
-      'SimonL','LucasL','MatéoL','LaurynL','AubertL','NataëlM','LényM','TahiryR',
-      'LilianR','AlexisR','LouaneR','FloryanS']
+liste=['GildasB','LeonB','FabianBYB','AlexandreD','KelyanD','IlanG','CarlaL','MelvinL','ThibaultL','EliottL',
+      'AxelM','MarionM','EmmaNV','JosephN','EstebaneP','RomainP','SimonRL','LilianR']
 
 from random import random
 
