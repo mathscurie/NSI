@@ -1,15 +1,388 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Cours de NSI</title>
+<title>Boucles</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<style type="text/css"><!--body { font-family:Arial,Helvetica,sans-serif; margin-left:40px }--></style>
+<link rel="stylesheet"  href="prism.css" />
+<script src="prism.js"></script>
+
+
+<script>
+function bonjour()
+{
+  let listeEleves=['Gildas','Alex','Marcus','Erwan','Agathe','Mathis','Lucine','Enzo','Enzo','Léo','Noan','Laure-Anne','Sylvestre','Tom','Jérémy','Joackim'];
+
+  for(var i=0;i<listeEleves.length;i++)
+  {
+    alert("Bonjour "+listeEleves[i]);
+  }
+
+}
+</script>
+
+<script>
+function bonjourDivision()
+{
+  let listeEleves=['Gildas','Alex','Marcus','Erwan','Agathe','Mathis','Lucine','Enzo','Enzo','Léo','Noan','Laure-Anne','Sylvestre','Tom','Jérémy','Joackim'];
+  division=document.getElementById("bonjours");
+  alert("La fonction bonjourDivision doit modifier dynamiquement la page HTML et saluer les élèves dans la division dont l'id est 'bonjours'");
+}
+</script>
+
+
 </head>
+
+
 <body>
- <h1> Cours de NSI Lycée Curie Vire </h1>
 
-<h2> Première </h2>
+<h1> Utiliser des boucles </h1>
 
-<h2> Terminale </h2>
+<h2>Salutations </h2>
+
+<p>Pour dire bonjour à chaque élève, le professeur de NSI a décidé d'utiliser une boucle.</p>
+
+<h3>En Python</h3>
+
+<iframe width="1100" height="400" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=listeEleves%3D%5B'Gildas','Alex','Marcus','Erwan','Agathe','Mathis','Lucine','Enzo','Enzo','Léo','Noan','Laure-Anne','Sylvestre','Tom','Jérémy','Joackim'%5D%0A%0Afor%20prenom%20in%20listeEleves%3A%0A%20%20%20%20print%28'Bonjour%20'%2Bprenom%29%0A%20%20%20%20%0A&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=2&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+
+<p class="question" id="Q1">Q1 : Combien de fois le corps de la boucle est-il exécuté ?</p>
+
+<h3>La même chose, en JavaScript</h3>
+
+<button onclick=bonjour()>Ne cliquez surtout pas ici</button>
+
+<p class="question" id="Q2">Q2 : Pourquoi ne faut-il pas cliquer sur le bouton ci-dessus ?</p>
+
+<p class="question" id="Q3">Q3 : Comment trouver le code javascript qui s'exécute si par malheur on clique sur le bouton ?</p>
+
+<p class="question" id="Q4">Q4 : Comment trouver le code javascript qui s'exécute si par malheur on clique sur le bouton, avec une autre méthode ?</p>
+
+<p class="question" id="Q5">Q5 : Quelle différence peut-on voir entre la définition de listeEleves en Python et en javascript ?</p>
+
+<h2> Enumérer ou compter ?</h2>
+
+<p> En Python, la construction 
+<pre class="line-numbers"><code class="language-python">for variable in liste:
+  instructions
+</code></pre>
+
+permet d'énumérer les éléments de la liste en exécutant pour chacun les instructions du corps de la boucle. </p>
+
+<p>En javascript, la variable est un compteur qui va prendre les valeurs des indices des prénoms dans la liste.</p>
+
+<iframe width="1100" height="400" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=let%20listeEleves%3D%5B'Gildas','Alex','Marcus','Erwan','Agathe','Mathis','Lucine','Enzo','Enzo','Léo','Noan','Laure-Anne','Sylvestre','Tom','Jérémy','Joackim'%5D%3B%0A%0Afor%28var%20i%3D0%3Bi%3ClisteEleves.length%3Bi%2B%2B%29%0A%20%20%7B%0A%20%20%20%20console.log%28%22Bonjour%20%22%2BlisteEleves%5Bi%5D%29%3B%0A%20%20%7D%0A&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=js&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+
+<p class="question" id="Q6">Q6 : Combien vaut la variable i lors du dernier tour de boucle ?</p>
+
+<p class="question" id="Q7">Q7 : Combien vaut la variable i après le dernier tour de boucle ?</p>
+
+<p class="question" id="Q8">Q8 : Est-ce que c'est la même chose en Python qu'en javascript ?</p>
+
+<h3> La fonction Python enumerate </h3>
+
+<p>Il est parfois utile d'accéder à la fois à un élément de la liste et à son rang ; la fonction enumerate de Python permet cela. </p>
+
+<iframe width="1100" height="350" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=listeEleves%3D%5B'Gildas','Alex','Marcus','Erwan','Agathe','Mathis','Lucine','Enzo','Enzo','Léo','Noan','Laure-Anne','Sylvestre','Tom','Jérémy','Joackim'%5D%0A%20%0Afor%20k,prenom%20in%20enumerate%28listeEleves%29%3A%0A%20%20%20%20print%28'Bonjour%20%C3%A9l%C3%A8ve%20num%C3%A9ro%20'%2Bstr%28k%29%2B%22,%20tu%20t'appelles%20%22%2Bprenom%2B%22%20je%20crois%20!%22%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=2&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+
+<h2> L'objet Python range</h2>
+
+<h3>Compter de zéro (inclus) à n (exclus)</h3>
+
+<p>Lorsqu'on veut exécuter les instructions à l'intérieur d'un boucle un nombre n fixé de fois, on peut utiliser la construction 
+<pre class="line-numbers"><code class="language-python">for variable in range(n):
+  instructions
+</code></pre>
+
+où range(n) est ce qu'on appelle un itérable (comme une liste, un tuple ou une chaîne de caractères).</p>
+
+<p> range(n), où n est un entier, se comporte comme la liste [0,1,2,3,...,n-1] qui contient n entiers à partir de zéro.</p>
+
+<iframe width="800" height="350" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=for%20k%20in%20range%2810%29%3A%0A%20%20%20%20print%28k%29%0A%20%20%20%20%0Aa%3Drange%285%29%0Ab%3Dlist%28range%285%29%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+
+<p> Attention, un objet range n'est pas une liste. On peut le transformer en liste avec list() comme sur la ligne 2 ci-dessous.
+<pre class="line-numbers"><code class="language-python">a=range(5)
+b=list(range(5))
+type(a),type(b)
+</code></pre>
+</p>
+
+<h3>Compter de différentes manières</h3>
+
+<p> Copier ces quelques lignes dans un interpréteur Python, penser à déterminer la longueur de chaque liste.
+<pre class="line-numbers"><code class="language-python">l1=list(range(10,20,3))
+l2=list(range(10,2,-3))
+l3=list(range(0,11,2))
+</code></pre>
+</p>
+
+<p class="question" id="Q9">Q9 : Donner la longueur de chacune de ces listes.</p>
+
+<h3>En javascript</h3>
+
+<p>On peut utiliser l'ardoise javascript (Shift-F4 ou bien menu Outils de développement) sous Firefox, ou bien la console avec Ctrl-Shift-K, mais aussi <a href="nodejs.org">node.js</a>
+<br/> ou encore <a href="basthon.fr">Basthon</a> ou <a href="pythontutor.com">Pythontutor</a>.</p>
+
+<p> Essayer ces quelques lignes de js.
+<pre class="line-numbers"><code class="language-javascript">for(var i=5;i>0;i--) {console.log(i)};
+
+for(var k=20;k>=0;k=k-4)
+{
+  console.log(k)
+};
+
+for(var t=1;t<1000;t=t*2)
+{
+  console.log(t);
+}
+</code></pre>
+Il est utile de savoir que les boucles for de javascript sont exatement les mêmes que pour les langages de la même famille : C, C++, Processing, Arduino, Java... 
+</p>
+ 
+<p class="question" id="Q10">Q10 : Quels sont les nombres affichés par la troisième boucle ci-dessus ?</p>
+
+<h3>Equivalence avec un while</h3>
+
+<p> Réécrivons la troisième boucle en Python ; on va utiliser un while car la multiplication par deux n'est pas très simple avec un for.</p>
+<pre class="line-numbers"><code class="language-python">t=1
+while t<1000:
+    t=t*2
+    print(t)
+</code></pre>
+</p>
+
+<p>La construction 
+<pre class="line-numbers"><code class="language-javascript">for(initialisation; condition; instruction)
+{
+  instructions;
+}
+</code></pre>
+est équivalente à
+<pre class="line-numbers"><code class="language-javascript">initialisation;
+while(condition)
+{
+  instructions;
+  instruction;
+}
+</code></pre>
+en javascript, et à 
+<pre class="line-numbers"><code class="language-python">initialisation
+while condition:
+    instructions
+    instruction
+</code></pre>
+en Python.
+</p>
+
+<h2>Exercices</h2>
+
+<h3>Simple, basique</h3>
+
+<p> Voici une fonction qui renvoie une liste des dix premiers multiples non-nuls de son argument n (voir sur <a href="https://pythontutor.com/visualize.html#code=def%20multiples%28n%29%3A%0A%20%20%20%20listeMultiples%3D%5B%5D%0A%20%20%20%20for%20k%20in%20range%281,11%29%3A%0A%20%20%20%20%20%20%20%20%20listeMultiples.append%28k*n%29%0A%20%20%20%20return%20listeMultiples%0A%0Aprint%28multiples%287%29%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">PythonTutor</a>).</p>
+
+<pre class="line-numbers"><code class="language-python">def multiples(n):
+    listeMultiples=[]
+    for k in range(1,11):
+        listeMultiples.append(k*n)
+    return listeMultiples
+</code></pre>
+
+<p class="question" id="Q11">Q11 : Que fait l'instruction liste.append(élément) ?</p>
+
+<p class="question" id="Q12">Q12 : Ecrire une fonction qui renvoie la liste des 20 premiers multiples d'un entier donné.</p>
+
+<h3>Une accumulation</h3>
+
+<p> La fonction somme proposée ici calcule la somme des n premiers entiers naturels non-nuls</p> 
+<pre class="line-numbers"><code class="language-python">def somme(n):
+    s=0
+    for k in range(1,n+1):
+        s=s+k
+    return s
+</code></pre>
+
+<p class="question" id="Q13">Q13 : Pourquoi a-t-on un range(1,n+1) ?</p>
+
+<p class="question" id="Q14">Q14 : Ecrire une fonction somme2 qui calcule la somme des carrés des n premiers entiers naturels non nuls.</p>
+
+
+<h3>Une double boucle</h3>
+
+
+<p class="question" id="Q15">Q15 : Combien contient la variable s à la fin de l'exécution de l'algorithme ? Calculer d'abord en exécutant l'algorithme à la main, puis vérifier en exécutant le code (éventuellement avec PythonTutor).</p>
+
+
+<pre class="line-numbers"><code class="language-python">s=0
+for k in range(4):
+    for l in range(3):
+        s=s+k
+</code></pre>
+
+<p class="question" id="Q16">Q16 : Même question.</p>
+
+
+<pre class="line-numbers"><code class="language-python">s=0
+for k in range(4):
+    for l in range(3):
+        s=s+k*l
+</code></pre>
+
+<h3>Dessiner des motifs</h3>
+
+<p class="question" id="Q17">Q17 : Ecrire une boucle qui dessine le motif ci-dessous.</p>
+
+*<br/>
+**<br/>
+***<br/>
+****<br/>
+*****<br/>
+******<br/>
+
+
+<p class="question" id="Q18">Q18 : Ecrire une fonction qui prend comme paramètre le nombre de lignes et qui renvoie une chaîne de caractères contenant le motif (on rappelle que le passage à la ligne se note \n).</p>
+
+<h3> Factorielle </h3>
+
+<p>La factorielle d'un nombre entier positif n, notée n!, est le produit 1*2*3*...*n. Par convention, 0!=1.</p>
+
+<p class="question" id="Q19">Q19 : Ecrire une fonction qui prend comme paramètre un entier n et retourne sa factorielle.</p>
+
+<h3> Fizz bubble</h3>
+
+<p> Le jeu du Fizz Bubble consiste à compter à voix haute en partant de 1, de 1 en 1, mais en remplaçant les multiples de 3 par Fizz et les multiples de 5 par Bubble. Les multiples de 15 sont remplacés par Fizz Bubble. On peut choisir d'autres nombres que 3 et 5.</p>
+
+
+<p class="question" id="Q20">Q20 : Ecrire une fonction FizzBubble qui prend comme paramètre un entier n et affiche le comptage de 1 à n en mode Fizz Bubble. Par exemple, FizzBubble(20) doit afficher :</p>
+
+<br/>1<br/>2<br/>Fizz<br/>4<br/>Bubble<br/>Fizz<br/>7<br/>8<br/>Fizz<br/>Bubble<br/>11<br/>Fizz<br/>13<br/>14<br/>Fizz Bubble<br/>16<br/>17<br/>Fizz<br/>19<br/>Bubble<br/>
+
+<h3> Damier </h3>
+
+<p class="question" id="Q21">Q21 : Ecrire une fonction damier qui prend comme paramètres deux entiers n et p et affiche un damier n*n avec des cases carrées p*p. Par exemple, damier(6,3) doit afficher :</p>
+
+###___###___###___<br/>
+###___###___###___<br/>
+###___###___###___<br/>
+___###___###___###<br/>
+___###___###___###<br/>
+___###___###___###<br/>
+###___###___###___<br/>
+###___###___###___<br/>
+###___###___###___<br/>
+___###___###___###<br/>
+___###___###___###<br/>
+___###___###___###<br/>
+###___###___###___<br/>
+###___###___###___<br/>
+###___###___###___<br/>
+___###___###___###<br/>
+___###___###___###<br/>
+___###___###___###<br/>
+
+
+<h3> Tris</h3>
+
+<p class="question" id="Q22">Q22 : quel est le tri implémenté ci-dessous ? On pourra copier-coller le code dans une console javascript, <br/> p.ex sur <a href="basthon.fr">basthon</a> ou bien sur <a href="https://pythontutor.com/visualize.html#mode=edit">Pythontutor</a> (choisir comme langage JavaScript ES6).</p>
+
+
+
+
+<pre class="line-numbers"><code class="language-javascript">function tri(t)
+{
+    for (var i=0;i&lt;t.length;i++)
+    {
+        var j=i;
+        for(var k=j;k&lt;t.length;k++)
+        {
+            if (t[k]&lt;t[j])
+            {
+                j=k;
+            }
+        }
+        var tmp=t[i];
+        t[i]=t[j];
+        t[j]=tmp;
+    }
+    return t;
+}
+
+var tab=[76,14,50,35,22,29,56,44];
+console.log(tri(tab));
+</code></pre>
+
+<p class="question" id="Q23">Q23 : sur le cas d'usage proposé, combien de fois sont exécutées les ligens 13-15 ?</p>
+
+
+<p class="question" id="Q24">Q24 : compléter le code ci-dessous pour implémenter l'autre algorithme de tri vu en classe.</p>
+
+
+<pre class="line-numbers"><code class="language-javascript">function tri2(t)
+{
+    for (var i=0;i<t.length;i++)
+    {
+        var a=...;
+        var j=...;
+        while (j>=0 && t[j]>a)
+        {
+            t[j+1]=...;
+            j=...;
+        }
+        t[j+1]=...;
+    }
+    return t;
+}
+
+var tab=[76,14,50,35,22,29,56,44];
+console.log(tri2(tab));
+</code></pre>
+
+<h2>Un peu de CSS</h2>
+
+<p> Les questions sont peu lisibles, on voudrait les mettre en évidence.</p>
+<ul>
+<li> Dans l'inspecteur d'objets (F12) ou bien directement dans l'éditeur de style Shift-F7, <br/> ajouter une règle CSS qui permet de mettre toutes les questions en rouge, en les soulignant.</li>
+<li> En sauvegardant une copie de la page html dans votre répertoire personnel, insérer cette règle CSS à l'endroit adapté. <br/> Attention à copier également les fichiers prism.je et prism.css dans votre répertoire personnel.</li>
+</ul>
+
+<p class="question" id="Q25">Q25 : Quel est le code CSS utilisé (y compris le sélecteur) ?</p>
+<p class="question" id="Q26">Q26 : Où peut-on placer ce code CSS ?</p>
+ 
+
+<h2>Accès au DOM</h2>
+
+<button onclick="bonjourDivision()">Cliquer ici !</button>
+
+<div id="bonjours"></div>
+
+<p> Plutôt que des boîtes d'alerte, on va utiliser une division (dont l'id est bonjours) pour y afficher les bonjours.</p>
+
+<p> On aura besoin de quelques fonctions javascript qui permettent de modifier le DOM. </p>
+
+<ul>
+<li> let division=document.getElementById("id d'un élément") range dans la variable division une référence à l'élément dont on a donné l'id</li>
+<li> var p1=document.createElement("p"); crée un paragraphe mais sans le positionner ni lui affecter de contenu</li>
+<li> p1.textContent est une propriété qui contient le texte du paragraphe ; p1.textContent=prenom; est une piste à creuser.</li>
+<li> division.appendChild(p1); permet d'insérer dynamiquement le paragraphe à la fin de la division.
+</ul>
+
+
+<p class="question" id="Q27">Q27 : Que signifie l'acronyme DOM ?</p>
+
+
+<p class="question" id="Q28">Q28 : Modifier la fonction bonjourDivision() pour afficher les bonjours dans la division d'id "bonjours".</p>
+
+<p> La réponse à la question Q24 : <a href="https://console.basthon.fr/?kernel=javascript&script=eJxVkEEKgzAQRfeCd8hKEkxFrVpKGi8iLqJoTRAD6dguSu_eBAPqXw3__ZlhZlyXHqReEBiZYyBh8A0DZDVqg_BbGCR5yuQDknlYnjAxGcdkS_igk8sJDo1s2dlUXF6yg_eZ5DwgrGqeoihC0Ki2FmTnh5lOlsdZy12MnYni6jT4t5e-SXjqiRlgNfZM61onDEB0vLlVNCtomdJrSfOc5ndaVrQo3LJeLy89D8msn3j7jegIYX-LJ0Yy">tri par insertion sur Basthon</a> et sur <a href="https://pythontutor.com/visualize.html#code=function%20tri2%28t%29%0A%7B%0A%20%20%20%20for%20%28var%20i%3D0%3Bi%3Ct.length%3Bi%2B%2B%29%0A%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20var%20a%3Dt%5Bi%5D%3B%0A%20%20%20%20%20%20%20%20var%20j%3Di-1%3B%0A%20%20%20%20%20%20%20%20while%20%28j%3E%3D0%20%26%26%20t%5Bj%5D%3Ea%29%0A%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20t%5Bj%2B1%5D%3Dt%5Bj%5D%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20j%3Dj-1%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20t%5Bj%2B1%5D%3Da%3B%0A%20%20%20%20%7D%0A%20%20%20%20return%20t%3B%0A%7D%0A%0Avar%20tab%3D%5B76,14,50,35,22,29,56,44%5D%3B%0Aconsole.log%28tri2%28tab%29%29%3B&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=js&rawInputLstJSON=%5B%5D&textReferences=false">Pythontutor</a>.</p>
+
+<hr/>
+
+<p> On peut enchaîner avec ce sympathique <a href="https://developer.mozilla.org/fr/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript">tuto</a> qui va nous guider pas-à-pas pour créer un petit jeu video en 2D. </p>
+
+
+
+<hr/>
+
+<p> <img src="./by-nc-sa.png" align="MIDDLE"/> Ronan Charpentier 2023 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/">Licence CC-BY-NC-SA</a>
+
 </body>
 </html>
