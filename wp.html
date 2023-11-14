@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Coloriage de graphe</title>
+    <style>
+      * { padding: 6px; margin: 0; }
+      canvas { background: #eee; display: block; margin: 0 auto; }
+      li {padding: 6px;}
+      img {display : inline;}
+    </style>
+</head>
+<body>
+<h1>Coloriage d'un graphe</h1>
+
+<ul>
+<li>Un graphe est un ensemble de sommets reliés par des arêtes.</li>
+<li>Colorier un graphe, c'est colorier chacun de ses sommets, de façon à ce que des sommets voisins aient des couleurs distinctes.</li>
+<li>Pour effacer la couleur d'un sommet, il suffit de choisir la couleur blanche, en cliquant ailleurs que sur les sommets et les rectangles de couleur. </li>
+</ul>
+
+<canvas id="canevas" width="700" height="500" style="background-color:#ffffff"></canvas>
+
+<br/>
+<p><img src="by-nc-sa.png" alt="logo CC-BY-SA" align="middle"/> Ronan Charpentier 2023</p>
+
+<script>
+
+var c = document.getElementById("canevas");
+var ctx = c.getContext("2d");
+var sommets=[75,185,200,300,325,350,450,450,600,275,550,100,350,75,300,250,475,200];
+var decal=[45,165,160,305,295,330,470,480,615,255,520,80,320,50,267,232,445,200];
+
+var noms='ABCDEFGHI';
+ctx.font = "20px Arial";
+for(var i=0;i<9;i++){
+ctx.beginPath();
+ctx.arc(sommets[2*i],sommets[2*i+1],20,0,2*Math.PI);
+ctx.stroke();
+ctx.fillText(noms[i],decal[2*i],decal[2*i+1]);
+}
+
+
+ctx.moveTo(89,198);ctx.lineTo(185,286);ctx.stroke();
+ctx.moveTo(93,177);ctx.lineTo(331,82);ctx.stroke();
+ctx.moveTo(94,190);ctx.lineTo(280,244);ctx.stroke();
+ctx.moveTo(217,291);ctx.lineTo(282,258);ctx.stroke();
+ctx.moveTo(218,307);ctx.lineTo(306,342);ctx.stroke();
+ctx.moveTo(340,362);ctx.lineTo(434,437);ctx.stroke();
+ctx.moveTo(463,434);ctx.lineTo(586,290);ctx.stroke();
+ctx.moveTo(451,430);ctx.lineTo(473,219);ctx.stroke();
+ctx.moveTo(438,434);ctx.lineTo(312,266);ctx.stroke();
+ctx.moveTo(594,255);ctx.lineTo(555,119);ctx.stroke();
+ctx.moveTo(580,273);ctx.lineTo(319,251);ctx.stroke();
+ctx.moveTo(582,264);ctx.lineTo(492,210);ctx.stroke();
+ctx.moveTo(530,97);ctx.lineTo(369,77);ctx.stroke();
+ctx.moveTo(538,116);ctx.lineTo(487,184);ctx.stroke();
+ctx.moveTo(538,116);ctx.lineTo(487,184);ctx.stroke();
+ctx.moveTo(364,89);ctx.lineTo(460,185);ctx.stroke();
+ctx.moveTo(319,244);ctx.lineTo(455,205);ctx.stroke();
+ctx.moveTo(344,94);ctx.lineTo(305,230);ctx.stroke();
+
+
+ctx.beginPath();
+ctx.moveTo(61, 199);
+ctx.bezierCurveTo(0, 260, 320, 580, 436,464 );
+ctx.stroke(); 
+
+ctx.fillStyle = "#FF0000";
+ctx.fillRect(0, 380, 60, 40);
+ctx.fillStyle = "#00FF00";
+ctx.fillRect(0, 420, 60, 40);
+ctx.fillStyle = "#0000FF";
+ctx.fillRect(0, 460, 60, 40);
+ctx.fillStyle = "#FFFF00";
+ctx.fillRect(60, 420, 60, 40);
+ctx.fillStyle = "#FF00FF";
+ctx.fillRect(60, 460, 60, 40);
+ctx.fillStyle = "#00FFFF";
+ctx.fillRect(120, 460, 60, 40);
+
+var couleurs=[0,0,0,0,0,0,0,0,0];
+var voisins=[[1,3,6,7],[0,2,7],[1,3],[0,2,4,7,8],[3,5,7,8],[4,6,8],[0,5,7,8],[0,1,3,4,6,8],[3,4,5,6,7]];
+var codescouleurs=["#FFFFFF","#FF0000","#00FF00","#0000FF","#FFFF00","#FF00FF","#00FFFF"];
+
+var couleur=0;
+
+function possible(sommet,couleur){
+    if (couleur==0) return true;
+    var voiz=voisins[sommet];
+    for(var i=0;i<voiz.length;i++){
+        if (couleurs[voiz[i]]==couleur) return false;
+    }
+    return true;
+}
+
+function zone(x,y){
+    for(var i=0;i<9;i++){
+        if ((x-sommets[2*i])**2+(y-sommets[2*i+1])**2<500){
+            return i;
+        }
+    }
+    if (0<x && x<60 && y>380 && y<420) return -1;
+    if (0<x && x<60 && y>420 && y<460) return -2;
+    if (0<x && x<60 && y>460 && y<500) return -3;
+    if (60<x && x<120 && y>420 && y<460) return -4;
+    if (60<x && x<120 && y>460 && y<500) return -5;
+    if (120<x && x<180 && y>460 && y<500) return -6;
+    return -30;
+}
+
+function verif(){
+    for(var i=0;i<9;i++){
+        if (couleurs[i]==0){
+            ctx.fillStyle = "#FFFFFF";
+            ctx.fillRect(0, 20, 150, 60);
+            return;
+        }
+    }
+    ctx.font = "30px Arial";
+    ctx.fillStyle="#000000";
+    ctx.fillText("Bravo !", 10, 50);
+}
+
+
+function colorie(sommet,couleur){
+    if (possible(sommet,couleur)){
+        couleurs[sommet]=couleur;
+        ctx.fillStyle = codescouleurs[couleur];
+        ctx.beginPath();
+        ctx.arc(sommets[2*sommet],sommets[2*sommet+1], 19, 0, 2 * Math.PI);
+        ctx.fill();
+        verif();
+    }
+}
+
+function cliquemanager(canvas, event) {
+    const rect = canvas.getBoundingClientRect()
+    const x = event.clientX - rect.left
+    const y = event.clientY - rect.top
+    //console.log("x: " + x + " y: " + y)
+    var k=zone(x,y);
+    if (k==-30) couleur=0;
+    else if (k<0) couleur=-k;
+    else colorie(k,couleur);
+    if (k<0){
+        ctx.fillStyle = codescouleurs[couleur];
+        ctx.beginPath();
+        ctx.arc(680, 480, 10, 0, 2 * Math.PI);
+        ctx.fill();
+    }   
+}
+
+const canvas = document.querySelector('canvas')
+canvas.addEventListener('mousedown', function(e) {
+    cliquemanager(canvas, e)
+})
+
+</script>
+</body>
+</html>
